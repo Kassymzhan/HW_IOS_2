@@ -13,6 +13,7 @@ protocol ConfigurableCell {
     func configure(data: DataType)
 }
 
+// MARK: - ConfigurableCell
 extension ConfigurableCell {
     static var reuseIdentifier: String { return String(describing: Self.self) }
 }

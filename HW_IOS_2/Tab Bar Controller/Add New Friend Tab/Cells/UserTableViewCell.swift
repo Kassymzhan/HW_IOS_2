@@ -12,7 +12,7 @@ struct User: Hashable {
     let name: String
     let status: UIColor
     let numberOfFriends: Int
-    let addButton: Bool
+    let addButton: String
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(profilePicture)
@@ -70,9 +70,10 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
             numberOfFriendsLabel.text = "\(data.numberOfFriends) " + "Friends".localized()
         }
         
-        if data.addButton == true {
+        let buttonState = data.addButton
+        if buttonState == "add" {
             addFriendConfigure()
-        }else {
+        }else if buttonState == "added"{
             addedFriendConfigure()
         }
     }
@@ -86,7 +87,7 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
         accessoryType = .none
     }
     
-    @objc func didTapAddButton(){
+    @objc func didTapAddButton() {
         addFriendButton.addButton.removeFromSuperview()
         addFriendButton.addedButton.layer.cornerRadius = screenSize.height * 30 / 1852
         addedFriendConfigure()
@@ -96,7 +97,7 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
         contentView.addSubview(addFriendButton.addedButton)
         addFriendButton.addedButton.layoutIfNeeded()
         addFriendButton.addedButton.snp.makeConstraints(){
-            $0.width.equalTo(screenSize.width * 100 / 628)
+            $0.width.equalTo(screenSize.width * 110 / 425)
             $0.height.equalTo(screenSize.height * 30 / 926)
             $0.trailing.equalToSuperview().offset(-16)
             $0.centerY.equalToSuperview()
@@ -106,7 +107,7 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
     func addFriendConfigure() {
         contentView.addSubview(addFriendButton.addButton)
         addFriendButton.addButton.snp.makeConstraints(){
-            $0.width.equalTo(screenSize.width * 80 / 628)
+            $0.width.equalTo(screenSize.width * 110 / 425)
             $0.height.equalTo(screenSize.height * 30 / 926)
             $0.trailing.equalToSuperview().offset(-16)
             $0.centerY.equalToSuperview()

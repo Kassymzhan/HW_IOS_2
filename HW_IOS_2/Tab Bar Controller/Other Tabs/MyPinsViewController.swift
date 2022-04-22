@@ -18,6 +18,7 @@ class MyPinsViewController: UIViewController {
     }
 }
 
+// MARK: - UIViewController
 extension UIViewController {
     func configureNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(

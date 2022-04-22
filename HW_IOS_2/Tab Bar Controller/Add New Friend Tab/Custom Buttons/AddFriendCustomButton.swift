@@ -12,7 +12,7 @@ class AddFriendCustomButton: UIButton {
     let addButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-        button.setTitle(" ADD", for: .normal)
+        button.setTitle(" ADD".localized(), for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.systemBlue.cgColor
         return button
@@ -21,7 +21,7 @@ class AddFriendCustomButton: UIButton {
     let addedButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-        button.setTitle(" ADDED", for: .normal)
+        button.setTitle(" ADDED".localized(), for: .normal)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.secondaryLabel.cgColor
         button.tintColor = .secondaryLabel

@@ -27,12 +27,14 @@ class MyFeedViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension MyFeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
 }
 
+// MARK: - UITableViewDataSource
 extension MyFeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

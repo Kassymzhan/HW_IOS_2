@@ -25,18 +25,18 @@ class AddNewFriendViewController: UIViewController {
     ]
 
     private let items2: [CellConfigurator] = [
-        UserCellConfigurator(item: User(profilePicture: "Keenon", name: "Keenon Jackson", status: online, numberOfFriends: 2427, addButton: true)),
-        UserCellConfigurator(item: User(profilePicture: "Rakim", name: "Rakim Mayers", status: online, numberOfFriends: 432, addButton: true)),
-        UserCellConfigurator(item: User(profilePicture: "Tupac", name: "Tupac Shakur", status: online, numberOfFriends: 2, addButton: true)),
-        UserCellConfigurator(item: User(profilePicture: "Savannah", name: "Savannah Tucker", status: online, numberOfFriends: 226, addButton: false)),
-        UserCellConfigurator(item: User(profilePicture: "Kathryn", name: "Kathryn Murphy", status: online, numberOfFriends: 152, addButton: false)),
-        UserCellConfigurator(item: User(profilePicture: "Darrell", name: "Darrell Stewart", status: offline, numberOfFriends: 1, addButton: false)),
-        UserCellConfigurator(item: User(profilePicture: "Jenny", name: "Jenny Wilson", status: offline, numberOfFriends: 83, addButton: false)),
-        UserCellConfigurator(item: User(profilePicture: "Courtney", name: "Courtney Henry", status: doNotDisturb, numberOfFriends: 557, addButton: false)),
-        UserCellConfigurator(item: User(profilePicture: "Jim", name: "Jim Warren", status: offline, numberOfFriends: 59, addButton: false)),
-        UserCellConfigurator(item: User(profilePicture: "Playboi", name: "Playboi Carti", status: online, numberOfFriends: 1, addButton: false)),
-        UserCellConfigurator(item: User(profilePicture: "Joseph", name: "Joseph Adenuga", status: doNotDisturb, numberOfFriends: 967, addButton: false)),
-        UserCellConfigurator(item: User(profilePicture: "Malcolm", name: "Malcolm McCormick", status: offline, numberOfFriends: 540, addButton: false)),
+        UserCellConfigurator(item: User(profilePicture: "Keenon", name: "Keenon Jackson", status: online, numberOfFriends: 2427, addButton: "add")),
+        UserCellConfigurator(item: User(profilePicture: "Rakim", name: "Rakim Mayers", status: online, numberOfFriends: 432, addButton: "add")),
+        UserCellConfigurator(item: User(profilePicture: "Tupac", name: "Tupac Shakur", status: online, numberOfFriends: 2, addButton: "add")),
+        UserCellConfigurator(item: User(profilePicture: "Savannah", name: "Savannah Tucker", status: online, numberOfFriends: 226, addButton: "added")),
+        UserCellConfigurator(item: User(profilePicture: "Kathryn", name: "Kathryn Murphy", status: online, numberOfFriends: 152, addButton: "added")),
+        UserCellConfigurator(item: User(profilePicture: "Darrell", name: "Darrell Stewart", status: offline, numberOfFriends: 1, addButton: "added")),
+        UserCellConfigurator(item: User(profilePicture: "Jenny", name: "Jenny Wilson", status: offline, numberOfFriends: 83, addButton: "added")),
+        UserCellConfigurator(item: User(profilePicture: "Courtney", name: "Courtney Henry", status: doNotDisturb, numberOfFriends: 557, addButton: "added")),
+        UserCellConfigurator(item: User(profilePicture: "Jim", name: "Jim Warren", status: offline, numberOfFriends: 59, addButton: "added")),
+        UserCellConfigurator(item: User(profilePicture: "Playboi", name: "Playboi Carti", status: online, numberOfFriends: 1, addButton: "added")),
+        UserCellConfigurator(item: User(profilePicture: "Joseph", name: "Joseph Adenuga", status: doNotDisturb, numberOfFriends: 967, addButton: "added")),
+        UserCellConfigurator(item: User(profilePicture: "Malcolm", name: "Malcolm McCormick", status: offline, numberOfFriends: 540, addButton: "added")),
     ]
     
     private let tableView : UITableView = {
@@ -60,6 +60,7 @@ class AddNewFriendViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension AddNewFriendViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
@@ -130,6 +131,7 @@ extension AddNewFriendViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension AddNewFriendViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch(indexPath.section) {

@@ -49,7 +49,7 @@ class MyAppTabBarController: UITabBarController, UITabBarControllerDelegate {
         viewControllers = [myFeedNavigationController, myFriendsNavigationController, myPinsNavigationController, myProfileNavigationController]
     }
 }
-
+// MARK: - Localized
 extension String {
     func localized() -> String {
         return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
