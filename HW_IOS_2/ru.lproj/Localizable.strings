@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  HW_IOS_2
+
+  Created by Касымжан Гиждуан on 19.04.2022.
+  
+*/
+"My Friends" = "Мои Друзья";
+"My Pins" = "Мои Закладки";
+"My Profile" = "Мой Профиль";
+"My Feed" = "Моя Лента";
+"From Contacts" = "Из Контактов";
+"By Username" = "По Никнейму";
+"By Phone Number" = "По Номеру Телефона";
+"Friends" = "Друзей";
+"Friend" = "Друг";
+"Add New Friend" = "Добавить Нового Друга";
+"Add New Contacts" = "Добавить Новый Контакт";
+"You Might Know Them" = "Вы Можете Быть Знакомы";
