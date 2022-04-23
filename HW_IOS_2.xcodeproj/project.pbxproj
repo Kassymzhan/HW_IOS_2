@@ -24,6 +24,9 @@
 		0DC9BA0D2811A97900FBB3A6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA0C2811A97900FBB3A6 /* UserTableViewCell.swift */; };
 		0DC9BA0F2811E4B600FBB3A6 /* AddContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA0E2811E4B500FBB3A6 /* AddContactsTableViewCell.swift */; };
 		0DC9BA142811FC5F00FBB3A6 /* AddFriendCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA132811FC5F00FBB3A6 /* AddFriendCustomButton.swift */; };
+		0DC9BA1B28142C1C00FBB3A6 /* TableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA1A28142C1B00FBB3A6 /* TableDirector.swift */; };
+		0DC9BA1D28142C5D00FBB3A6 /* CellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA1C28142C5D00FBB3A6 /* CellAction.swift */; };
+		0DC9BA1F28142C8200FBB3A6 /* CellActionProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA1E28142C8200FBB3A6 /* CellActionProxy.swift */; };
 		2654E9B74036D8F7F5C32C1B /* Pods_HW_IOS_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C94E2078142054E1A4A092 /* Pods_HW_IOS_2.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		0DC9BA0C2811A97900FBB3A6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		0DC9BA0E2811E4B500FBB3A6 /* AddContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactsTableViewCell.swift; sourceTree = "<group>"; };
 		0DC9BA132811FC5F00FBB3A6 /* AddFriendCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCustomButton.swift; sourceTree = "<group>"; };
+		0DC9BA1A28142C1B00FBB3A6 /* TableDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDirector.swift; sourceTree = "<group>"; };
+		0DC9BA1C28142C5D00FBB3A6 /* CellAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAction.swift; sourceTree = "<group>"; };
+		0DC9BA1E28142C8200FBB3A6 /* CellActionProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellActionProxy.swift; sourceTree = "<group>"; };
 		384340B5108E2E6262E85E8A /* Pods-HW_IOS_2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW_IOS_2.release.xcconfig"; path = "Target Support Files/Pods-HW_IOS_2/Pods-HW_IOS_2.release.xcconfig"; sourceTree = "<group>"; };
 		A4C94E2078142054E1A4A092 /* Pods_HW_IOS_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HW_IOS_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,6 +92,9 @@
 		0D02FCF6280D691400AD242E /* HW_IOS_2 */ = {
 			isa = PBXGroup;
 			children = (
+				0DC9BA1E28142C8200FBB3A6 /* CellActionProxy.swift */,
+				0DC9BA1C28142C5D00FBB3A6 /* CellAction.swift */,
+				0DC9BA1A28142C1B00FBB3A6 /* TableDirector.swift */,
 				0DC9BA0328115E7700FBB3A6 /* Application Layer */,
 				0DC9BA192813002100FBB3A6 /* Tab Bar Controller */,
 				0D02FD00280D691A00AD242E /* Assets.xcassets */,
@@ -297,14 +306,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC9BA1F28142C8200FBB3A6 /* CellActionProxy.swift in Sources */,
 				0DC9BA142811FC5F00FBB3A6 /* AddFriendCustomButton.swift in Sources */,
 				0D02FD10280D86C600AD242E /* MyAppTabBarController.swift in Sources */,
 				0D02FCFC280D691400AD242E /* MyFriendsViewController.swift in Sources */,
 				0D02FCF8280D691400AD242E /* AppDelegate.swift in Sources */,
 				0D02FD18280E70D600AD242E /* CustomFriendCell.swift in Sources */,
 				0DC9BA0D2811A97900FBB3A6 /* UserTableViewCell.swift in Sources */,
+				0DC9BA1B28142C1C00FBB3A6 /* TableDirector.swift in Sources */,
 				0D02FD14280D8AB300AD242E /* MyPinsViewController.swift in Sources */,
 				0DC9BA0F2811E4B600FBB3A6 /* AddContactsTableViewCell.swift in Sources */,
+				0DC9BA1D28142C5D00FBB3A6 /* CellAction.swift in Sources */,
 				0D02FCFA280D691400AD242E /* SceneDelegate.swift in Sources */,
 				0D02FD12280D890400AD242E /* MyFeedViewController.swift in Sources */,
 				0D02FD16280D8B4300AD242E /* MyProfileViewController.swift in Sources */,

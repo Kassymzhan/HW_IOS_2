@@ -39,6 +39,11 @@ class AddNewFriendViewController: UIViewController {
         UserCellConfigurator(item: User(profilePicture: "Malcolm", name: "Malcolm McCormick", status: offline, numberOfFriends: 540, addButton: "added")),
     ]
     
+    private lazy var tableDirector: TableDirector = {
+        let tableDirector = TableDirector(tableView: tableView, items: items2)
+        return tableDirector
+    }()
+    
     private let tableView : UITableView = {
         let tableView = UITableView()
         return tableView
@@ -50,6 +55,8 @@ class AddNewFriendViewController: UIViewController {
         title = "Add New Friend".localized()
         navigationController?.navigationBar.tintColor = .label
         
+        tableDirector.tableView.reloadData()
+        
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
@@ -57,6 +64,11 @@ class AddNewFriendViewController: UIViewController {
         tableView.snp.makeConstraints(){
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    private func cellActionHandlers() {
+        self.tableDirector.actionProxy
+            .on(action: .custom(UserTableViewCell.didTapAddButtonAction)){ (config: UserCellConfigurator, cell ) in print("123")}
     }
 }
 

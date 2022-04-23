@@ -26,6 +26,8 @@ struct User: Hashable {
 typealias UserCellConfigurator = TableCellConfigurator<UserTableViewCell, User>
 
 class UserTableViewCell: UITableViewCell, ConfigurableCell {
+    static let didTapAddButtonAction = "UserCellDidTapAddButtonAction"
+    
     private let profilePiictureImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 24
@@ -87,10 +89,14 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
         accessoryType = .none
     }
     
-    @objc func didTapAddButton() {
-        addFriendButton.addButton.removeFromSuperview()
-        addFriendButton.addedButton.layer.cornerRadius = screenSize.height * 30 / 1852
-        addedFriendConfigure()
+//    @objc func didTapAddButton() {
+//        addFriendButton.addButton.removeFromSuperview()
+//        addFriendButton.addedButton.layer.cornerRadius = screenSize.height * 30 / 1852
+//        addedFriendConfigure()
+//    }
+    
+    @objc private func didTapAddButton() {
+        CellAction.custom(type(of: self).didTapAddButtonAction).invoke(cell: self)
     }
     
     func addedFriendConfigure() {
@@ -103,7 +109,7 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
             $0.centerY.equalToSuperview()
         }
     }
-    
+
     func addFriendConfigure() {
         contentView.addSubview(addFriendButton.addButton)
         addFriendButton.addButton.snp.makeConstraints(){
