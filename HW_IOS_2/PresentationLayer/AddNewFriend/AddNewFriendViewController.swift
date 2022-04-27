@@ -7,36 +7,26 @@
 
 import UIKit
 
-
-
 class AddNewFriendViewController: UIViewController {
-    
-    struct Objects {
-        var sectionName: String!
-        var sectionObject: CellConfigurator!
-    }
-
-    var objectArray = [Objects]()
-    
-    private let items1: [CellConfigurator] = [
-        AddContactsCellConfigurator(item: AddContacts(title: "From Contacts".localized(), icon: "book")),
-        AddContactsCellConfigurator(item: AddContacts(title: "By Username".localized(), icon: "signature")),
-        AddContactsCellConfigurator(item: AddContacts(title: "By Phone Number".localized(), icon: "phone.connection")),
+    private let contacts: [Contact] = [
+        Contact(title: "From Contacts".localized(), icon: "book"),
+        Contact(title: "By Username".localized(), icon: "signature"),
+        Contact(title: "By Phone Number".localized(), icon: "phone.connection"),
     ]
 
-    private let items2: [CellConfigurator] = [
-        UserCellConfigurator(item: User(profilePicture: "Keenon", name: "Keenon Jackson", status: online, numberOfFriends: 2427, addButton: "add")),
-        UserCellConfigurator(item: User(profilePicture: "Rakim", name: "Rakim Mayers", status: online, numberOfFriends: 432, addButton: "add")),
-        UserCellConfigurator(item: User(profilePicture: "Tupac", name: "Tupac Shakur", status: online, numberOfFriends: 2, addButton: "add")),
-        UserCellConfigurator(item: User(profilePicture: "Savannah", name: "Savannah Tucker", status: online, numberOfFriends: 226, addButton: "added")),
-        UserCellConfigurator(item: User(profilePicture: "Kathryn", name: "Kathryn Murphy", status: online, numberOfFriends: 152, addButton: "added")),
-        UserCellConfigurator(item: User(profilePicture: "Darrell", name: "Darrell Stewart", status: offline, numberOfFriends: 1, addButton: "added")),
-        UserCellConfigurator(item: User(profilePicture: "Jenny", name: "Jenny Wilson", status: offline, numberOfFriends: 83, addButton: "added")),
-        UserCellConfigurator(item: User(profilePicture: "Courtney", name: "Courtney Henry", status: doNotDisturb, numberOfFriends: 557, addButton: "added")),
-        UserCellConfigurator(item: User(profilePicture: "Jim", name: "Jim Warren", status: offline, numberOfFriends: 59, addButton: "added")),
-        UserCellConfigurator(item: User(profilePicture: "Playboi", name: "Playboi Carti", status: online, numberOfFriends: 1, addButton: "added")),
-        UserCellConfigurator(item: User(profilePicture: "Joseph", name: "Joseph Adenuga", status: doNotDisturb, numberOfFriends: 967, addButton: "added")),
-        UserCellConfigurator(item: User(profilePicture: "Malcolm", name: "Malcolm McCormick", status: offline, numberOfFriends: 540, addButton: "added")),
+    private let users: [UserPO] = [
+        UserPO(profilePicture: "Keenon", name: "Keenon Jackson", status: .online, numberOfFriends: 2427, addButton: "add"),
+        UserPO(profilePicture: "Rakim", name: "Rakim Mayers", status: .online, numberOfFriends: 432, addButton: "add"),
+        UserPO(profilePicture: "Tupac", name: "Tupac Shakur", status: .online, numberOfFriends: 2, addButton: "add"),
+        UserPO(profilePicture: "Savannah", name: "Savannah Tucker", status: .online, numberOfFriends: 226, addButton: "added"),
+        UserPO(profilePicture: "Kathryn", name: "Kathryn Murphy", status: .online, numberOfFriends: 152, addButton: "added"),
+        UserPO(profilePicture: "Darrell", name: "Darrell Stewart", status: .offline, numberOfFriends: 1, addButton: "added"),
+        UserPO(profilePicture: "Jenny", name: "Jenny Wilson", status: .offline, numberOfFriends: 83, addButton: "added"),
+        UserPO(profilePicture: "Courtney", name: "Courtney Henry", status: .doNotDisturb, numberOfFriends: 557, addButton: "added"),
+        UserPO(profilePicture: "Jim", name: "Jim Warren", status: .offline, numberOfFriends: 59, addButton: "added"),
+        UserPO(profilePicture: "Playboi", name: "Playboi Carti", status: .online, numberOfFriends: 1, addButton: "added"),
+        UserPO(profilePicture: "Joseph", name: "Joseph Adenuga", status: .doNotDisturb, numberOfFriends: 967, addButton: "added"),
+        UserPO(profilePicture: "Malcolm", name: "Malcolm McCormick", status: .offline, numberOfFriends: 540, addButton: "added"),
     ]
     
     private let tableView : UITableView = {
@@ -97,7 +87,7 @@ extension AddNewFriendViewController: UITableViewDelegate {
         let friendsCount = UILabel()
         friendsCount.font = UIFont(name: "KohinoorBangla-Regular", size: screenSize.height * 13 / 926)
         friendsCount.textColor = .secondaryLabel
-        friendsCount.text = "(\(items2.count))"
+        friendsCount.text = "(\(users.count))"
         header.addSubview(friendsCount)
         friendsCount.snp.makeConstraints(){
             $0.centerY.equalToSuperview()
@@ -118,9 +108,9 @@ extension AddNewFriendViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section) {
         case 0:
-            return items1.count
+            return contacts.count
         case 1:
-            return items2.count
+            return users.count
         default:
             return 0
         }
@@ -136,22 +126,25 @@ extension AddNewFriendViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch(indexPath.section) {
         case 0:
-            let item = items1[indexPath.row]
-            tableView.register(type(of: item).cellClass, forCellReuseIdentifier: type(of: item).reuseId)
-            let cell = tableView.dequeueReusableCell(withIdentifier: type(of: item).reuseId, for: indexPath)
-            item.configure(cell: cell)
+            let item = contacts[indexPath.row]
+            let config = AddContactsCellConfigurator(item: item)
+            tableView.register(type(of: config).cellClass, forCellReuseIdentifier: type(of: config).reuseId)
+            let cell = tableView.dequeueReusableCell(withIdentifier: type(of: config).reuseId, for: indexPath)
+            config.configure(cell: cell)
             return cell
         case 1:
-            let item = items2[indexPath.row]
-            tableView.register(type(of: item).cellClass, forCellReuseIdentifier: type(of: item).reuseId)
-            let cell = tableView.dequeueReusableCell(withIdentifier: type(of: item).reuseId, for: indexPath)
-            item.configure(cell: cell)
+            let item = users[indexPath.row]
+            let config = UserCellConfigurator(item: item)
+            tableView.register(type(of: config).cellClass, forCellReuseIdentifier: type(of: config).reuseId)
+            let cell = tableView.dequeueReusableCell(withIdentifier: type(of: config).reuseId, for: indexPath)
+            config.configure(cell: cell)
             return cell
         default:
-            let item = items2[indexPath.row]
-            tableView.register(type(of: item).cellClass, forCellReuseIdentifier: type(of: item).reuseId)
-            let cell = tableView.dequeueReusableCell(withIdentifier: type(of: item).reuseId, for: indexPath)
-            item.configure(cell: cell)
+            let item = users[indexPath.row]
+            let config = UserCellConfigurator(item: item)
+            tableView.register(type(of: config).cellClass, forCellReuseIdentifier: type(of: config).reuseId)
+            let cell = tableView.dequeueReusableCell(withIdentifier: type(of: config).reuseId, for: indexPath)
+            config.configure(cell: cell)
             return cell
         }
     }

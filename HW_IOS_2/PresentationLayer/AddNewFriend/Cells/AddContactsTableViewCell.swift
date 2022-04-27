@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct AddContacts: Hashable {
+struct Contact: Hashable {
     let title: String
     let icon: String
 
@@ -18,7 +18,7 @@ struct AddContacts: Hashable {
     }
 }
 
-typealias AddContactsCellConfigurator = TableCellConfigurator<AddContactsTableViewCell, AddContacts>
+typealias AddContactsCellConfigurator = TableCellConfigurator<AddContactsTableViewCell, Contact>
 
 class AddContactsTableViewCell: UITableViewCell, ConfigurableCell {
     
@@ -41,7 +41,7 @@ class AddContactsTableViewCell: UITableViewCell, ConfigurableCell {
         layoutUI()
     }
     
-    func configure(data: AddContacts) {
+    func configure(data: Contact) {
         AddContactButton.setTitle(data.title, for: .normal)
         buttonIconImageView.image = UIImage(systemName: data.icon)
     }

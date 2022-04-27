@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class MyFeedViewController: UIViewController {
   
     private let tableView = UITableView()
@@ -21,26 +20,20 @@ class MyFeedViewController: UIViewController {
         
         view.addSubview(tableView)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
     }
 }
 
-// MARK: - UITableViewDelegate
-extension MyFeedViewController: UITableViewDelegate {
+// MARK: - UITableViewDataSource
+extension MyFeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
     }
-}
-
-// MARK: - UITableViewDataSource
-extension MyFeedViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "My Feed \(indexPath.row + 1)"
         return cell
     }
 }
-
-

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct User: Hashable {
+struct UserPO: Hashable {
     let profilePicture: String
     let name: String
     let status: UIColor
@@ -23,7 +23,7 @@ struct User: Hashable {
     }
 }
 
-typealias UserCellConfigurator = TableCellConfigurator<UserTableViewCell, User>
+typealias UserCellConfigurator = TableCellConfigurator<UserTableViewCell, UserPO>
 
 class UserTableViewCell: UITableViewCell, ConfigurableCell {
     private let profilePiictureImageView: UIImageView = {
@@ -33,15 +33,9 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
         return imageView
     }()
     
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private let nameLabel = UILabel()
     
-    private let statusView: UIView = {
-        let status = UILabel()
-        return status
-    }()
+    private let statusView = UIView()
     
     private let numberOfFriendsLabel: UILabel = {
         let label = UILabel()
@@ -49,17 +43,14 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
         return label
     }()
     
-    private let addFriendButton: AddFriendCustomButton = {
-        let button = AddFriendCustomButton()
-        return button
-    }()
+    private let addFriendButton = AddFriendCustomButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layoutUI()
     }
     
-    func configure(data: User) {
+    func configure(data: UserPO) {
         profilePiictureImageView.image = UIImage(named: data.profilePicture)
         nameLabel.text = data.name
         statusView.backgroundColor = data.status

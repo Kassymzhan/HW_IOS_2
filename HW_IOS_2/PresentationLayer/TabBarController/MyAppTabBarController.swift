@@ -7,7 +7,7 @@
 
 import UIKit
 
-let screenSize: CGRect = UIScreen.main.bounds
+let screenSize: CGRect = UIScreen.main.bounds//separate file as enum Const
 
 class MyAppTabBarController: UITabBarController, UITabBarControllerDelegate {
 
@@ -47,11 +47,5 @@ class MyAppTabBarController: UITabBarController, UITabBarControllerDelegate {
         myProfileNavigationController.tabBarItem = tabFourBarItem
 
         viewControllers = [myFeedNavigationController, myFriendsNavigationController, myPinsNavigationController, myProfileNavigationController]
-    }
-}
-// MARK: - Localized
-extension String {
-    func localized() -> String {
-        return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
     }
 }

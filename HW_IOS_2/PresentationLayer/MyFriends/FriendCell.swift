@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CustomFriendCell: UICollectionViewCell {
+class FriendCell: UICollectionViewCell {
     
-    var data: CustomData? {
+    var data: User? {
         didSet {
             guard let data = data else { return }
             profilePictureImageView.image = data.profilePicture
@@ -54,7 +54,7 @@ class CustomFriendCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        profilePictureImageView.layer.cornerRadius = (frame.height * 0.57) / 2
+        profilePictureImageView.layer.cornerRadius = (frame.height * 0.57) / 2//enum const
         statusView.layer.cornerRadius = (frame.height * 0.057) / 2
         professionLabel.font = professionLabel.font.withSize(frame.height * 12 / 190)
         nameLabel.font = nameLabel.font.withSize(frame.height * 16 / 190)
@@ -70,8 +70,8 @@ class CustomFriendCell: UICollectionViewCell {
         
         profilePictureImageView.snp.makeConstraints() {
             $0.height.width.equalToSuperview().multipliedBy(0.57)
-            $0.top.equalTo(self.contentView.snp.top).offset(frame.height * 16 / 192)
-            $0.centerX.equalTo(self.contentView)
+            $0.top.equalTo(contentView.snp.top).offset(frame.height * 16 / 192)
+            $0.centerX.equalTo(contentView)
         }
 
         nameLabel.snp.makeConstraints() {
@@ -81,7 +81,7 @@ class CustomFriendCell: UICollectionViewCell {
         
         professionLabel.snp.makeConstraints() {
             $0.top.equalTo(nameLabel.snp.bottom).offset(frame.height * 4 / 192)
-            $0.centerX.equalTo(self.contentView)
+            $0.centerX.equalTo(contentView)
         }
         
         statusView.snp.updateConstraints(){
@@ -96,4 +96,8 @@ class CustomFriendCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+//    enum Constants {
+//        static let widthMultiplier
+//    }
 }

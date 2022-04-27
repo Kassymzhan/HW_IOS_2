@@ -17,8 +17,11 @@
 		0D02FD12280D890400AD242E /* MyFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02FD11280D890400AD242E /* MyFeedViewController.swift */; };
 		0D02FD14280D8AB300AD242E /* MyPinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02FD13280D8AB300AD242E /* MyPinsViewController.swift */; };
 		0D02FD16280D8B4300AD242E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02FD15280D8B4300AD242E /* MyProfileViewController.swift */; };
-		0D02FD18280E70D600AD242E /* CustomFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02FD17280E70D500AD242E /* CustomFriendCell.swift */; };
+		0D02FD18280E70D600AD242E /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02FD17280E70D500AD242E /* FriendCell.swift */; };
 		0D02FD20280EA8B100AD242E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D02FD22280EA8B100AD242E /* Localizable.strings */; };
+		0D6CD5A42819AE30006BBF4B /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6CD5A32819AE30006BBF4B /* UIViewController+NavigationBar.swift */; };
+		0D6CD5A62819AE7F006BBF4B /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6CD5A52819AE7F006BBF4B /* String+Localized.swift */; };
+		0D6CD5A82819AEF1006BBF4B /* UIColor+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6CD5A72819AEF1006BBF4B /* UIColor+Extention.swift */; };
 		0DC9BA092811A8D100FBB3A6 /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA082811A8D100FBB3A6 /* CellConfigurator.swift */; };
 		0DC9BA0B2811A8EB00FBB3A6 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA0A2811A8EB00FBB3A6 /* ConfigurableCell.swift */; };
 		0DC9BA0D2811A97900FBB3A6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC9BA0C2811A97900FBB3A6 /* UserTableViewCell.swift */; };
@@ -41,9 +44,12 @@
 		0D02FD11280D890400AD242E /* MyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedViewController.swift; sourceTree = "<group>"; };
 		0D02FD13280D8AB300AD242E /* MyPinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPinsViewController.swift; sourceTree = "<group>"; };
 		0D02FD15280D8B4300AD242E /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
-		0D02FD17280E70D500AD242E /* CustomFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFriendCell.swift; sourceTree = "<group>"; };
+		0D02FD17280E70D500AD242E /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		0D02FD21280EA8B100AD242E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D02FD23280EA8D100AD242E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D6CD5A32819AE30006BBF4B /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
+		0D6CD5A52819AE7F006BBF4B /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		0D6CD5A72819AEF1006BBF4B /* UIColor+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extention.swift"; sourceTree = "<group>"; };
 		0DC9BA082811A8D100FBB3A6 /* CellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 		0DC9BA0A2811A8EB00FBB3A6 /* ConfigurableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		0DC9BA0C2811A97900FBB3A6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -86,8 +92,9 @@
 		0D02FCF6280D691400AD242E /* HW_IOS_2 */ = {
 			isa = PBXGroup;
 			children = (
-				0DC9BA0328115E7700FBB3A6 /* Application Layer */,
-				0DC9BA192813002100FBB3A6 /* Tab Bar Controller */,
+				0D6CD5A12819AD64006BBF4B /* Extentions */,
+				0DC9BA0328115E7700FBB3A6 /* ApplicationLayer */,
+				0D6CD5A02819AD2A006BBF4B /* PresentationLayer */,
 				0D02FD00280D691A00AD242E /* Assets.xcassets */,
 				0D02FD02280D691A00AD242E /* LaunchScreen.storyboard */,
 				0D02FD05280D691A00AD242E /* Info.plist */,
@@ -96,42 +103,71 @@
 			path = HW_IOS_2;
 			sourceTree = "<group>";
 		};
-		0DC9BA0328115E7700FBB3A6 /* Application Layer */ = {
+		0D6CD5A02819AD2A006BBF4B /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				0DC9BA0528115EBA00FBB3A6 /* Other */,
+				0DC9BA062811A89100FBB3A6 /* AddNewFriend */,
+				0DC9BA0428115E9100FBB3A6 /* MyFriends */,
+				0D6CD5A22819AD6E006BBF4B /* Extentions */,
+				0DC9BA192813002100FBB3A6 /* TabBarController */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		0D6CD5A12819AD64006BBF4B /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				0D6CD5A52819AE7F006BBF4B /* String+Localized.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		0D6CD5A22819AD6E006BBF4B /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				0D6CD5A32819AE30006BBF4B /* UIViewController+NavigationBar.swift */,
+				0D6CD5A72819AEF1006BBF4B /* UIColor+Extention.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		0DC9BA0328115E7700FBB3A6 /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				0D02FCF7280D691400AD242E /* AppDelegate.swift */,
 				0D02FCF9280D691400AD242E /* SceneDelegate.swift */,
 			);
-			path = "Application Layer";
+			path = ApplicationLayer;
 			sourceTree = "<group>";
 		};
-		0DC9BA0428115E9100FBB3A6 /* My Friends Tab */ = {
+		0DC9BA0428115E9100FBB3A6 /* MyFriends */ = {
 			isa = PBXGroup;
 			children = (
 				0D02FCFB280D691400AD242E /* MyFriendsViewController.swift */,
-				0D02FD17280E70D500AD242E /* CustomFriendCell.swift */,
+				0D02FD17280E70D500AD242E /* FriendCell.swift */,
 			);
-			path = "My Friends Tab";
+			path = MyFriends;
 			sourceTree = "<group>";
 		};
-		0DC9BA0528115EBA00FBB3A6 /* Other Tabs */ = {
+		0DC9BA0528115EBA00FBB3A6 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				0D02FD11280D890400AD242E /* MyFeedViewController.swift */,
 				0D02FD13280D8AB300AD242E /* MyPinsViewController.swift */,
 				0D02FD15280D8B4300AD242E /* MyProfileViewController.swift */,
 			);
-			path = "Other Tabs";
+			path = Other;
 			sourceTree = "<group>";
 		};
-		0DC9BA062811A89100FBB3A6 /* Add New Friend Tab */ = {
+		0DC9BA062811A89100FBB3A6 /* AddNewFriend */ = {
 			isa = PBXGroup;
 			children = (
 				0D02FD0D280D73F900AD242E /* AddNewFriendViewController.swift */,
 				0DC9BA072811A8A300FBB3A6 /* Cells */,
 				0DC9BA122811FC2A00FBB3A6 /* Custom Buttons */,
 			);
-			path = "Add New Friend Tab";
+			path = AddNewFriend;
 			sourceTree = "<group>";
 		};
 		0DC9BA072811A8A300FBB3A6 /* Cells */ = {
@@ -153,15 +189,12 @@
 			path = "Custom Buttons";
 			sourceTree = "<group>";
 		};
-		0DC9BA192813002100FBB3A6 /* Tab Bar Controller */ = {
+		0DC9BA192813002100FBB3A6 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
 				0D02FD0F280D86C600AD242E /* MyAppTabBarController.swift */,
-				0DC9BA0428115E9100FBB3A6 /* My Friends Tab */,
-				0DC9BA062811A89100FBB3A6 /* Add New Friend Tab */,
-				0DC9BA0528115EBA00FBB3A6 /* Other Tabs */,
 			);
-			path = "Tab Bar Controller";
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 		B4082326BCE0376AAC5C70BD /* Frameworks */ = {
@@ -301,12 +334,15 @@
 				0D02FD10280D86C600AD242E /* MyAppTabBarController.swift in Sources */,
 				0D02FCFC280D691400AD242E /* MyFriendsViewController.swift in Sources */,
 				0D02FCF8280D691400AD242E /* AppDelegate.swift in Sources */,
-				0D02FD18280E70D600AD242E /* CustomFriendCell.swift in Sources */,
+				0D6CD5A42819AE30006BBF4B /* UIViewController+NavigationBar.swift in Sources */,
+				0D02FD18280E70D600AD242E /* FriendCell.swift in Sources */,
 				0DC9BA0D2811A97900FBB3A6 /* UserTableViewCell.swift in Sources */,
 				0D02FD14280D8AB300AD242E /* MyPinsViewController.swift in Sources */,
 				0DC9BA0F2811E4B600FBB3A6 /* AddContactsTableViewCell.swift in Sources */,
 				0D02FCFA280D691400AD242E /* SceneDelegate.swift in Sources */,
+				0D6CD5A62819AE7F006BBF4B /* String+Localized.swift in Sources */,
 				0D02FD12280D890400AD242E /* MyFeedViewController.swift in Sources */,
+				0D6CD5A82819AEF1006BBF4B /* UIColor+Extention.swift in Sources */,
 				0D02FD16280D8B4300AD242E /* MyProfileViewController.swift in Sources */,
 				0DC9BA092811A8D100FBB3A6 /* CellConfigurator.swift in Sources */,
 				0D02FD0E280D73F900AD242E /* AddNewFriendViewController.swift in Sources */,
